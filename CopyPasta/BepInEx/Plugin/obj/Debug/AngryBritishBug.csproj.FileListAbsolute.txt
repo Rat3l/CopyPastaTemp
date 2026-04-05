@@ -1,0 +1,6 @@
+C:\Users\thedo\OneDrive\Desktop\Lethal Company Final Mods\Audio Mods\Angry British Bug\Plugin\obj\Debug\AngryBritishBug.csproj.AssemblyReference.cache
+C:\Users\thedo\OneDrive\Desktop\Lethal Company Final Mods\Audio Mods\Angry British Bug\Plugin\obj\Debug\PluginInfo.cs
+C:\Users\thedo\OneDrive\Desktop\Lethal Company Final Mods\Audio Mods\Angry British Bug\Plugin\obj\Debug\AngryBritishBug.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thedo\OneDrive\Desktop\Lethal Company Final Mods\Audio Mods\Angry British Bug\Plugin\obj\Debug\AngryBritishBug.AssemblyInfoInputs.cache
+C:\Users\thedo\OneDrive\Desktop\Lethal Company Final Mods\Audio Mods\Angry British Bug\Plugin\obj\Debug\AngryBritishBug.AssemblyInfo.cs
+C:\Users\thedo\OneDrive\Desktop\Lethal Company Final Mods\Audio Mods\Angry British Bug\Plugin\obj\Debug\AngryBritishBug.csproj.CoreCompileInputs.cache

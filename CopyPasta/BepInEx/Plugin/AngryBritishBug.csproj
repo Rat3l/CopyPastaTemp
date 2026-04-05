@@ -1,0 +1,47 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>AngryBritishBug</AssemblyName>
+    <Description>Angry British Bug - startup message and audio</Description>
+    <Version>1.6.0</Version>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <RestoreAdditionalProjectSources>https://nuget.bepinex.dev/v3/index.json</RestoreAdditionalProjectSources>
+    <!-- Set LethalCompanyDir to your game install, e.g. C:\Program Files (x86)\Steam\steamapps\common\Lethal Company -->
+    <LethalCompanyDir Condition="'$(LethalCompanyDir)' == ''">C:\Program Files (x86)\Steam\steamapps\common\Lethal Company</LethalCompanyDir>
+    <GameManaged>$(LethalCompanyDir)\Lethal Company_Data\Managed</GameManaged>
+    <OutputPath>..\plugins</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+    <PackageReference Include="BepInEx.Core" Version="5.*" />
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+    <PackageReference Include="UnityEngine.Modules" Version="2022.3.9" IncludeAssets="compile" />
+    <PackageReference Include="HarmonyX" Version="2.9.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="Exists('$(GameManaged)')">
+    <Reference Include="Assembly-CSharp">
+      <HintPath>$(GameManaged)\Assembly-CSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Unity.TextMeshPro">
+      <HintPath>$(GameManaged)\Unity.TextMeshPro.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>$(GameManaged)\UnityEngine.CoreModule.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <!-- If game path not found, allow build to still succeed (plugin will need to be built with correct path) -->
+  <Target Name="WarnGamePath" BeforeTargets="CoreCompile" Condition="!Exists('$(GameManaged)')">
+    <Warning Text="LethalCompanyDir not found at $(LethalCompanyDir). Build may fail. Set LethalCompanyDir in the .csproj or pass /p:LethalCompanyDir=YourGamePath" />
+  </Target>
+
+</Project>
